@@ -1,5 +1,5 @@
 from gevent import monkey; monkey.patch_all()
-from flask import Flask,render_template,redirect,url_for,send_from_directory
+from flask import Flask,render_template,redirect,url_for,send_from_directory,request
 from gevent.pywsgi import WSGIServer
 from flask_compress import Compress
 import os,config
@@ -21,7 +21,8 @@ def index():
 
 @app.route('/login')
 def login():
-    return 'Hi,I am Login Page'
+    return render_template('login.html')
+
 
 if __name__ == "__main__":
     http_server = WSGIServer((config.ip, config.port), app)
