@@ -1,9 +1,11 @@
 from gevent import monkey; monkey.patch_all()
-from flask import Flask,render_template,redirect,url_for,send_from_directory,request
+from flask import Flask,render_template
 from gevent.pywsgi import WSGIServer
 from flask_compress import Compress
 from threading import Thread
-import os,lib.config as config
+import lib.config as config
+import lib.logger as logger
+import logging
 
 app = Flask(__name__,
             static_url_path='', 
@@ -25,7 +27,7 @@ def login():
 
 def run():
     http_server = WSGIServer((config.ip, config.port), app)
-    print('Flask_WebApp Server Start!')
+    logger.logger(level='info',msg='WebApp Service Started !')
     http_server.serve_forever()
 
 def Flask_WebApp_Start():  
