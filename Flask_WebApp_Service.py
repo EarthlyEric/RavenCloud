@@ -2,8 +2,8 @@ from gevent import monkey; monkey.patch_all()
 from flask import Flask,render_template,redirect,url_for,send_from_directory,request
 from gevent.pywsgi import WSGIServer
 from flask_compress import Compress
-import os,config
-
+from threading import Thread
+import os,lib.config as config
 
 app = Flask(__name__,
             static_url_path='', 
@@ -23,12 +23,14 @@ def index():
 def login():
     return render_template('login.html')
 
-
-if __name__ == "__main__":
+def run():
     http_server = WSGIServer((config.ip, config.port), app)
-    print('Server Start!')
+    print('Flask_WebApp Server Start!')
     http_server.serve_forever()
-    
+
+def Flask_WebApp_Start():  
+    service = Thread(target=run)
+    service.start()
     
 
 
