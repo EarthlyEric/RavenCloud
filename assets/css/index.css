@@ -1,27 +1,27 @@
+body{
+    background-color: #0a061e;
+}
 h1 {
     font-family: lato,sans-serif;
     font-weight: bold;
     color: white;
     
 }
-body {
-    background-color: #10092E;
-    font-family: 'Raleway';font-size: 22px;
-}
 .light_button {
-    -webkit-border-radius: 40px;
-    -moz-border-radius: 40px;
-    border-radius: 40px;
-    height: 25px;
-    line-height: 25px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    height: 15px;
+    line-height: 15px;
     color: #FFFFFF;
-    font-family: Open Sans;
-    width: 150px;
-    font-size: 25px;
-    font-weight: 100;
-    padding: 20px;
+    font-family: lato,sans-serif;
+    font-weight: bold;
+    width: 90px;
+    font-size: 21px;
+    font-weight: 200;
+    padding: 15px;
     background-color: rgba(255, 255, 255, 0);
-    border: solid #97FCEC 3px;
+    border: solid #84FFFD 3px;
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
@@ -29,10 +29,10 @@ body {
  }
  
  .light_button:hover {
-    background: #89E5D6;
-    border: solid rgba(255, 255, 255, 0) 3px;
-    -webkit-border-radius: 40px;
-    -moz-border-radius: 40px;
-    border-radius: 40px;
+    background: rgba(151, 252, 236, 0.5);
+    border: solid #84FFFD 3px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
     text-decoration: none;
  }
