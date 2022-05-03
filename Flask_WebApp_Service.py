@@ -28,6 +28,12 @@ def login():
     logger.logger(level='info',msg=f'Visitor IP:{request.remote_addr},Request Login Page.')
     return render_template('login.html')
 
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404
+
+
 def run():
     http_server = WSGIServer((config.ip, config.port), app, log = None)
     logger.logger(level='info',msg='WebApp Service Started !')

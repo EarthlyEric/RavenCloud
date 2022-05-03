@@ -1,7 +1,5 @@
-body{
+html{
     background-color: #0a061e;
-    font-family: lato,sans-serif;
-    font-weight: bold;
 }
 h1 {
     font-family: lato,sans-serif;
@@ -9,7 +7,7 @@ h1 {
     color: white;
     
 }
-.light_button {
+.light_button_big {
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
@@ -18,7 +16,7 @@ h1 {
     color: #FFFFFF;
     font-family: lato,sans-serif;
     font-weight: bold;
-    width: 90px;
+    width: 200px;
     font-size: 21px;
     font-weight: 200;
     padding: 15px;
@@ -30,7 +28,7 @@ h1 {
     text-align: center;
  }
  
- .light_button:hover {
+ .light_button_big:hover {
     background: rgba(151, 252, 236, 0.5);
     border: solid #84FFFD 3px;
     -webkit-border-radius: 20px;
