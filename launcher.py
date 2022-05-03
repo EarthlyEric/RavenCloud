@@ -8,11 +8,11 @@ import lib.logger as logger
 def check_db():
     find_db_name='RavenCloud.db'
     if os.path.isfile(find_db_name):
-        logger.logger(level='info',msg='The Datebase was Found Successfully !')
+        logger.logger_printer(level='info',msg='The Datebase was Found Successfully !')
     elif not os.path.isfile(find_db_name):
-        logger.logger(level='error',msg='Database Not Found ! Generate the Database...Please Wait')
+        logger.logger_printer(level='error',msg='Database Not Found ! Generate the Database...Please Wait')
         lib.sql.sqllite_lib.init_sqllite()
-        logger.logger(level='info',msg='The Datebase was Generated Successfully !')
+        logger.logger_printer(level='info',msg='The Datebase was Generated Successfully !')
 
 def banner():
     f = open('banner.txt')

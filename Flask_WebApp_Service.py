@@ -20,12 +20,12 @@ compress.init_app(app)
 
 @app.route('/')
 def index():
-    logger.logger(level='info',msg=f'Visitor IP:{request.remote_addr},Request Home Page.')
+    logger.logger_printer(level='info',msg=f'Visitor IP:{request.remote_addr},Request Home Page.')
     return render_template('index.html')
 
 @app.route('/login')
 def login():
-    logger.logger(level='info',msg=f'Visitor IP:{request.remote_addr},Request Login Page.')
+    logger.logger_printer(level='info',msg=f'Visitor IP:{request.remote_addr},Request Login Page.')
     return render_template('login.html')
 
 @app.errorhandler(404)
@@ -36,7 +36,7 @@ def page_not_found(e):
 
 def run():
     http_server = WSGIServer((config.ip, config.port), app, log = None)
-    logger.logger(level='info',msg='WebApp Service Started !')
+    logger.logger_printer(level='info',msg='WebApp Service Started !')
     http_server.serve_forever()
 
 def Flask_WebApp_Start():  

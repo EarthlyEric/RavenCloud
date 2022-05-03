@@ -1,14 +1,12 @@
 from datetime import datetime
-from operator import le
 from colored import fg, bg, attr
-
 
 def nowtime():
     now = datetime.now()
     current_time = now.strftime('%Y/%m/%d %H:%M:%S')
     return current_time
 
-def logger(level:str,msg:str):
+def logger_printer(level:str,msg:str):
     if level == 'info':
         print('[%s%s%s][%sINFO%s] %s%s %s' % (fg(153), nowtime(), attr(0) , fg(10), attr(0), fg(10), msg, attr(0)))
     elif level == 'warn':
