@@ -3,12 +3,6 @@ body{
     font-family: lato,sans-serif;
     font-weight: bold;
 }
-h1 {
-    font-family: lato,sans-serif;
-    font-weight: bold;
-    color: white;
-    
-}
 .light_button {
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
