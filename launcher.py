@@ -1,4 +1,3 @@
-from distutils.log import error
 import Flask_WebApp_Service
 import sqlite3
 import os

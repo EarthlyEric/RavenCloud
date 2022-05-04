@@ -1,3 +1,4 @@
+import email
 from gevent import monkey; monkey.patch_all()
 from flask import Flask,render_template,request,redirect,url_for
 from gevent.pywsgi import WSGIServer
@@ -8,7 +9,7 @@ import lib.config as config
 import lib.logger as logger
 from lib.User import User
 
-users = {'admin': {'password': 'password'}}  
+users = {'admin@example.com': {'password': 'password'}}  
 
 app = Flask(__name__,
             static_url_path='', 
@@ -24,12 +25,12 @@ compress = Compress()
 compress.init_app(app)
 
 @login_manager.user_loader  
-def user_loader(username):  
-    if username not in users:  
+def user_loader(email):  
+    if email not in users:  
         return  
   
     user = User()  
-    user.id = username  
+    user.id = email 
     return user  
   
 
@@ -46,12 +47,12 @@ def login():
         return render_template('login.html')
     
         
-    username = request.form['username']  
-    if request.form['password'] == users[username]['password']:  
+    email = request.form['email']  
+    if request.form['password'] == users[email]['password']:  
         #  實作User類別  
         user = User()  
         #  設置id就是email  
-        user.id = username  
+        user.id = email 
         #  這邊，透過login_user來記錄user_id，如下了解程式碼的login_user說明。  
         login_user(user)  
         #  登入成功，轉址  
