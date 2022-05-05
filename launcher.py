@@ -31,7 +31,7 @@ def init_ravencloud():
     banner()
     check_db()
     check_secret_key()
-    sleep(1)
+    sleep(0.1)
     Flask_WebApp_Service.Flask_WebApp_Start()
     
 init_ravencloud()
