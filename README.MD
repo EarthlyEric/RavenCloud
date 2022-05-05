@@ -11,4 +11,4 @@ Coming Sonn.
 by Reload Dev Inc.
 # Dev Status 
 In development.
-![image](picture or gif url)
+![image](https://raw.githubusercontent.com/EarthlyEric/RavenCloud/master/README_RES/%3F/RavenCloud_%3F.gif)
