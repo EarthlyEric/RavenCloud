@@ -17,7 +17,7 @@ app = Flask(__name__,
             template_folder='assets')
 
 app.config["TEMPLATES_AUTO_RELOAD"] = True
-app.secret_key = 'YourKey'  
+app.secret_key = config.secret_key  
 
 login_manager = LoginManager(app)  
 
