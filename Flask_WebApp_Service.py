@@ -27,7 +27,7 @@ compress.init_app(app)
 @login_manager.user_loader  
 def user_loader(email):  
     if email not in users:  
-        return  
+        return  ''
   
     user = User()  
     user.id = email 
