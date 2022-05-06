@@ -3,9 +3,15 @@ from hamcrest import none
 
 config = ConfigObj('./config.ini')
 
-#Network
-ip = config['Network']['ip']
-port = int(config['Network']['port'])
+#Web
+web_ip = config['Web']['ip']
+web_port = int(config['Web']['port'])
+
+#FTP
+ftp_ip = config['FTP']['ip']
+ftp_port = int(config['FTP']['port'])
+ftp_max_connections = int(config['FTP']['max_connections'])
+fto_max_connections_per_ip = int(config['FTP']['max_connections_per_ip'])
 
 #Security
 secret_key=config['Security']['secret_key']

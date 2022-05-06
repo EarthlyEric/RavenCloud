@@ -1,5 +1,6 @@
 from time import sleep
 import Flask_WebApp_Service
+import lib.service.FTP as FTP
 import os
 import lib.sql.sqllite_lib
 import lib.logger as logger
@@ -32,6 +33,7 @@ def init_ravencloud():
     check_db()
     check_secret_key()
     sleep(0.1)
+    FTP.FTP_Server_Start()
     Flask_WebApp_Service.Flask_WebApp_Start()
     
 init_ravencloud()

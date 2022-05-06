@@ -26,9 +26,8 @@ compress.init_app(app)
 
 @login_manager.user_loader  
 def user_loader(email):  
-    if email not in users:  
-        return  ''
-  
+    if email not in users:
+        return  '' 
     user = User()  
     user.id = email 
     return user  
@@ -43,21 +42,17 @@ def index():
 def login():
     if request.method == 'GET':
         logger.logger_printer(level='info',msg=f'Visitor IP:{request.remote_addr},Request Login Page.')
-
         return render_template('login.html')
-    
+    elif request.method == 'POST':
+        email = request.form['email']
+        if request.form['password'] == users[email]['password']:
+            user = User()
+            user.id = email
+            login_user(user)
+            return redirect(url_for('dashboard'))
+        else:
+            return 'Login Fail !'
         
-    email = request.form['email']  
-    if request.form['password'] == users[email]['password']:  
-        #  實作User類別  
-        user = User()  
-        #  設置id就是email  
-        user.id = email 
-        #  這邊，透過login_user來記錄user_id，如下了解程式碼的login_user說明。  
-        login_user(user)  
-        #  登入成功，轉址  
-        return redirect(url_for('dashboard'))  
-
 
 
     return 'Bad login'
@@ -80,8 +75,8 @@ def page_not_found(e):
 
 
 def run():
-    http_server = WSGIServer((config.ip, config.port), app, log = None)
-    logger.logger_printer(level='info',msg='WebApp Service Started !')
+    http_server = WSGIServer((config.web_ip, config.web_port), app, log = None)
+    logger.logger_printer(level='info',msg='WebApp Service Start !')
     http_server.serve_forever()
 
 def Flask_WebApp_Start():  
