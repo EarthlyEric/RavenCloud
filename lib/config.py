@@ -1,5 +1,4 @@
 from configobj import ConfigObj
-from hamcrest import none
 
 config = ConfigObj('./config.ini')
 

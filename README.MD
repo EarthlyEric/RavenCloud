@@ -14,4 +14,4 @@ In development.
 
 ---
 
-![image](https://raw.githubusercontent.com/EarthlyEric/RavenCloud/master/README_RES/%3F/RavenCloud_%3F.gif)
+![image](https://github.com/EarthlyEric/RavenCloud/blob/master/README_RES/RGB/RavenCloud_RGB.gif)
