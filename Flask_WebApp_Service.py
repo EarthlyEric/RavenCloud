@@ -3,11 +3,13 @@ from gevent import monkey; monkey.patch_all()
 from flask import Flask,render_template,request,redirect,url_for
 from gevent.pywsgi import WSGIServer
 from flask_compress import Compress
-from flask_login import LoginManager, UserMixin, login_user, current_user, login_required, logout_user 
+from flask_login import LoginManager, login_user, current_user, login_required, logout_user 
 from threading import Thread
+from lib.User import User
 import lib.config as config
 import lib.logger as logger
-from lib.User import User
+import lib.lib as lib
+
 
 users = {'admin@example.com': {'password': 'password'}}  
 
@@ -41,8 +43,12 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
+        style = lib.easter_egg()
         logger.logger_printer(level='info',msg=f'Visitor IP:{request.remote_addr},Request Login Page.')
-        return render_template('login.html')
+        if style == None:
+            return render_template('login.html',style="")
+        else:
+            return render_template('login.html',style=style)
     elif request.method == 'POST':
         email = request.form['email']
         if request.form['password'] == users[email]['password']:
@@ -52,9 +58,6 @@ def login():
             return redirect(url_for('dashboard'))
         else:
             return 'Login Fail !'
-        
-
-
     return 'Bad login'
     
 @app.route('/dashboard')  
